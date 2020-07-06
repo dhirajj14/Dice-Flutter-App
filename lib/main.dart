@@ -25,6 +25,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int leftDice = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,14 +37,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Row(
           children: <Widget>[
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Image.asset('images/dice1.png'),
+              child: FlatButton(
+                onPressed: () {
+                  setState(() {
+                    leftDice = 3;
+                  });
+                },
+                child: Image.asset('images/dice$leftDice.png'),
               ),
             ),
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
+              child: FlatButton(
+                onPressed: () {
+                  print('right');
+                },
                 child: Image.asset('images/dice2.png'),
               ),
             ),
